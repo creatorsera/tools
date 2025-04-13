@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Filter</title>
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/filter.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Link Filter</h1>
+        <nav>
+            <a href="/index.html">Go to Sitemap Extractor</a>
+        </nav>
+        <section>
+            <h2>Upload CSV File</h2>
+            <label for="csvFile" class="file-upload">Choose CSV File</label>
+            <input type="file" id="csvFile" accept=".csv">
+            <div class="status" id="fileStatus">No file selected</div>
+            <div id="loadingIndicator" class="loader" style="display: none;"></div>
+            <div id="csvPreview" style="display: none;">
+                <h3>CSV Preview (First 5 Rows)</h3>
+                <table id="previewTable"><thead><tr></tr></thead><tbody></tbody></table>
+            </div>
+        </section>
+        <section>
+            <h2>Filter Links</h2>
+            <div class="filter-container">
+                <input type="text" id="filterKeyword" placeholder="Enter keywords (e.g., keyword1 AND keyword2)">
+                <select id="filterColumn">
+                    <option value="">All Columns</option>
+                </select>
+                <select id="logicOperator">
+                    <option value="AND">AND</option>
+                    <option value="OR">OR</option>
+                </select>
+                <label><input type="checkbox" id="regexToggle"> Use Regex</label>
+                <label><input type="checkbox" id="caseSensitive"> Case Sensitive</label>
+                <button id="filterButton">Filter</button>
+                <button id="resetButton">Reset</button>
+            </div>
+            <div class="column-selector" id="columnSelector"></div>
+            <div class="status" id="resultsStatus"></div>
+            <div style="overflow-x: auto;">
+                <table id="resultsTable">
+                    <thead><tr></tr></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="pagination" id="pagination"></div>
+            <div class="button-group">
+                <button id="downloadButton" disabled>Download Filtered CSV</button>
+                <button id="downloadSelectedButton" disabled>Download Selected Rows</button>
+            </div>
+        </section>
+    </div>
+    <script src="assets/js/utils.js" type="module"></script>
+    <script src="assets/js/filter.js" type="module"></script>
+</body>
+</html>
