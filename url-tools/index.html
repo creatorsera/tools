@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitemap Extractor</title>
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/sitemap.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sitemap Extractor</h1>
+        <nav>
+            <a href="/filter.html">Go to Link Filter</a>
+        </nav>
+        <section>
+            <h2>Extract URLs from Sitemaps</h2>
+            <p>Enter up to 100 sitemap URLs (one per line, e.g., https://example.com/sitemap.xml).</p>
+            <div class="input-section">
+                <textarea id="sitemapUrls" rows="5" placeholder="Enter sitemap URLs"></textarea>
+                <div class="button-group">
+                    <button onclick="extractUrls()">Start Extraction</button>
+                    <button onclick="resumeExtraction()" id="resumeButton" disabled>Resume Extraction</button>
+                    <button onclick="stopExtraction()" id="stopButton" disabled>Stop Extraction</button>
+                    <button onclick="clearSitemapData()">Clear Data</button>
+                </div>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <div class="progress-text" id="progressText">0% Complete (0/0 URLs processed)</div>
+            <div id="loader" class="loader" style="display: none;"></div>
+            <div id="sitemapResults"></div>
+        </section>
+    </div>
+    <script src="assets/js/utils.js" type="module"></script>
+    <script src="assets/js/sitemap.js" type="module"></script>
+</body>
+</html>
